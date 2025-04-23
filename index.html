@@ -17,11 +17,18 @@
       text-align: center;
     }
 
+    h2 {
+      color: #a04254;
+      margin-top: 30px;
+      border-bottom: 2px solid #d1b2b8;
+      padding-bottom: 5px;
+    }
+
     form {
       background-color: #f2e7ea;
       padding: 20px;
       border-radius: 10px;
-      max-width: 500px;
+      max-width: 600px;
       margin: 0 auto;
       box-shadow: 0 0 10px rgba(112, 31, 50, 0.2);
     }
@@ -33,7 +40,8 @@
     }
 
     input[type="text"],
-    textarea {
+    textarea,
+    select {
       width: 100%;
       padding: 10px;
       margin-top: 5px;
@@ -49,7 +57,7 @@
       padding: 10px 20px;
       border: none;
       border-radius: 5px;
-      margin-top: 15px;
+      margin-top: 20px;
       cursor: pointer;
       font-size: 16px;
     }
@@ -69,18 +77,38 @@
 <body>
   <h1>Formulario de Solicitud de Servicio</h1>
   <form id="serviceRequestForm">
-    <label for="name">Nombre del Solicitante:</label>
-    <input type="text" id="name" name="name" required><br><br>
 
-    <label for="description">Descripción de la Solicitud:</label>
-    <textarea id="description" name="description" required></textarea><br><br>
+    <h2>Datos del Paciente</h2>
+    <label for="patientName">Nombre del Paciente:</label>
+    <input type="text" id="patientName" name="patientName" required>
+
+    <label for="documentType">Tipo de Documento:</label>
+    <select id="documentType" name="documentType" required>
+      <option value="">-- Seleccione --</option>
+      <option value="CC">Cédula de Ciudadanía</option>
+      <option value="TI">Tarjeta de Identidad</option>
+      <option value="CE">Cédula de Extranjería</option>
+      <option value="PA">Pasaporte</option>
+    </select>
+
+    <label for="documentNumber">Número de Documento:</label>
+    <input type="text" id="documentNumber" name="documentNumber" required>
+
+    <h2>Datos del Médico</h2>
+    <label for="doctorName">Nombre del Médico:</label>
+    <input type="text" id="doctorName" name="doctorName" required>
+
+    <label for="procedureName">Nombre del Procedimiento:</label>
+    <input type="text" id="procedureName" name="procedureName" required>
+
+    <label for="procedureDescription">Descripción del Procedimiento:</label>
+    <textarea id="procedureDescription" name="procedureDescription" required></textarea>
 
     <button type="submit">Enviar Solicitud</button>
   </form>
 
   <div id="result"></div>
 
-  <!-- Se incluye el script para manejar el envío -->
   <script src="app.js"></script>
 </body>
 </html>
